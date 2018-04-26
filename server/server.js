@@ -40,13 +40,13 @@ var id = req.params.id;
 //valid id isValid
 if(!ObjectID.isValid(id) ){
 	 //404 -send back empty send
-	res.status(400).send();
+	res.status(404).send();
 }
  //findById
  Todo.findById(id).then( (todo) =>{
 	if(!todo){
 	//if no todo - send back 404 with empty body
-		res.status(400).send();
+		res.status(404).send();
 	}
 	//success //if todo - send it back
 	res.send({todo});

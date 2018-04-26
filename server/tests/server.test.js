@@ -84,19 +84,19 @@ describe('GET /todos/:id', () => {
       .end(done);
 	});
 
-	it('should return 400 id todo not found', (done) => {
+	it('should return 404 id todo not found', (done) => {
        var hexId = new ObjectID().toHexString();
 
        request(app)
        .get(`/todos/${hexId}`)
-       .expect(400)
+       .expect(404)
        .end(done);
 	});
 
-	it('should return 400 for non object id', (done) => {
+	it('should return 404 for non object id', (done) => {
        request(app)
        .get('/todos/123abc')
-       .expect(400)
+       .expect(404)
        .end(done);
 	});
 });	
